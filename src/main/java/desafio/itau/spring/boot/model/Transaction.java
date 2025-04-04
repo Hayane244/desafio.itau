@@ -1,4 +1,4 @@
-package desafio.itau.spring.boot.desafio.itau.model;
+package desafio.itau.spring.boot.model;
 
 import java.time.OffsetDateTime;
 
