@@ -37,7 +37,7 @@ public class TransactionController {
 	 */
 	public ResponseEntity<Void> createTransaction(@Valid @RequestBody TransactionRequest request) {
 		//Se a transação for no futuro retorne 422 Unprocessable Entity:
-		if (request.getDataHora().isAfter(OffsetDateTime.now())) {
+		if (request.getDataHora().isAfter(OffsetDateTime.now()) || request.getValor() <= 0) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
 		//Se passou pela validação, é adicionada uma transação com o seu valor e DataHora:
