@@ -31,8 +31,9 @@ public class TransactionService {
 	OffsetDateTime now = OffsetDateTime.now();
 	//Retornar as estatísticas buscando da fila, e criando um stream usando a expressão lambda:
 	return transactions.stream()
-	//Filtro para obter a DataHora das transações, e verquificar se esta em um intervalo de 60 segundos
+			//Filtro para obter a DataHora das transações, e verquificar se esta em um intervalo de 60 segundos
 			.filter(t -> t.getDataHora().isAfter(now.minusSeconds(60)))
+			//Retorna o valor:
 			.mapToDouble(Transaction::getValor)
 			.summaryStatistics();
 	}
